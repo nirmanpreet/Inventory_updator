@@ -63,4 +63,28 @@ Attribute Macro1.VB_ProcData.VB_Invoke_Func = " \n14"
     ActiveWindow.SelectedSheets.Delete
     Sheets("products_export_1").Select
     ActiveWindow.SelectedSheets.Delete
+    Worksheets(1).Activate
+        Range("K4").Select
+    ActiveCell.FormulaR1C1 = "=ROUND(RC[-4],0)"
+    Range("K4").Select
+    Selection.AutoFill Destination:=Range("K4:K921")
+    Range("K4:K921").Select
+    Selection.Copy
+    Range("G4").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Range("K4").Select
+    Application.CutCopyMode = False
+    ActiveCell.FormulaR1C1 = "=ROUND(RC[-3],0)"
+    Range("K4").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.Copy
+    Range("H4").Select
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Columns("K:K").Select
+    Application.CutCopyMode = False
+    Selection.Delete Shift:=xlToLeft
 End Sub
